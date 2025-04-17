@@ -84,7 +84,7 @@ Dans ce TP, nous avons abordé plusieurs notions comme les sockets pour la commu
 ![Schéma pour la connexion entre un serveur et un clint via TCP](SchemaImplementation_Serveur_Client_TCP.png)
 ![Schéma pour la connexion entre un serveur et un clint via TCP - 2](SchemaImplementation_Serveur_Client_TCP_Part2.png)
 
-*Ne faites pas attention à la taille je savais pas comment placer les images mais au moins il y a une petite flèche qui indique le sens de parcours...*
+*Ne faites pas attention à la taille je ne savais pas comment placer les images mais au moins il y a une petite flèche qui indique le sens de parcours...*
 
 Dans la deuxième image, il faut comprendre que les commandes se font dans un certain ordre en commençant par le haut, c'est donc le serveur qui va initier la connexion en attendant via un listen la connexion d'un client (accept).
 
