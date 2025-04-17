@@ -81,7 +81,7 @@ fd signifie file description.
 ### **TP2 : Communication Client-Serveur**
 Dans ce TP, nous avons abordé plusieurs notions comme les sockets pour la communication réseau mais aussi comment implémenter un serveur TCP et un client TCP. Pour mieux visualiser le tout, voici deux schémas liés entre eux.
 
-![Schéma pour la connexion entre un serveur et un clint via TCP](Images\SchemaImplementation_Serveur_Client_TCP.png)
+![Schéma pour la connexion entre un serveur et un clint via TCP](SchemaImplementation_Serveur_Client_TCP.png)
 ![Schéma pour la connexion entre un serveur et un clint via TCP - 2](Images\SchemaImplementation_Serveur_Client_TCP_Part2.png)
 
 *Ne faites pas attention à la taille je savais pas comment placer les images mais au moins il y a une petite flèche qui indique le sens de parcours...*
