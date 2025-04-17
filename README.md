@@ -206,49 +206,49 @@ Voici un tableau récapitulant les commandes possibles :
 ### **Étapes pour lancer le projet**
 
 1. **Compilation avec Makefile :**
-   Dans le répertoire contenant les fichiers `server.c`, `sh13.c` et le `Makefile`, celui de départ, exécutez :
-   ```bash
-   make
-   ```
+Dans le répertoire contenant les fichiers `server.c`, `sh13.c` et le `Makefile`, celui de départ, exécutez :
+```bash
+make
+```
 
 2. **Lancement du serveur :**
-   Ouvrez une première fenêtre de terminal et exécutez :
-   ```bash
-   ./server 12345
-   ```
+Ouvrez une première fenêtre de terminal et exécutez :
+```bash
+./server 12345
+```
 N'hésitez pas à renommer vos fenêtres pour que le lancement soit plus simple ! (Ex. : Serveur, Joueur 1, Joueur 2, ...)
 
 
 3. **Lancement des joueurs :
-    Ouvrez quatre autres fenêtres de terminal et exécutez les commandes suivantes pour chaque joueur :
-    *Joueur1*
-    ```bash
-    ./sh13 127.0.0.1 12345 127.0.0.1 12341 Ari
-    ```
-    Vous devriez avoir une fenêtre qui s'ouvre avec l'apparence suivant :
+Ouvrez quatre autres fenêtres de terminal et exécutez les commandes suivantes pour chaque joueur :
+*Joueur1*
+```bash
+./sh13 127.0.0.1 12345 127.0.0.1 12341 Ari
+```
+Vous devriez avoir une fenêtre qui s'ouvre avec l'apparence suivant :
 
-    ![Capture d'écran avant la connexion](CaptureEcran_ConnexionJoueur.png)
+![Capture d'écran avant la connexion](CaptureEcran_ConnexionJoueur.png)
 
-    Puis appuyez sur le bouton connect (si celui met du temps à disparaître, laissez votre curseur de souris sur le bouton et attendez). Voici ce que vous devriez obtenir en entrant la commande ci-dessus :
+Puis appuyez sur le bouton connect (si celui met du temps à disparaître, laissez votre curseur de souris sur le bouton et attendez). Voici ce que vous devriez obtenir en entrant la commande ci-dessus :
 
-    ![Capture d'écran après la connexion](CaptureEcran_AriConnecte.png)
+![Capture d'écran après la connexion](CaptureEcran_AriConnecte.png)
 
 **Attendez que le joueur 1 soit connecté avant de lancer la commande pour le joueur 2. Cela évitera certains problèmes au niveau des "lags".**
 
-    *Joueur2*
-    ```bash
-    ./sh13 127.0.0.1 12345 127.0.0.1 12342 Bari
-    ```
+*Joueur2*
+```bash
+./sh13 127.0.0.1 12345 127.0.0.1 12342 Bari
+```
 
-    *Joueur3*
-    ```bash
-    ./sh13 127.0.0.1 12345 127.0.0.1 12343 Cari
-    ```
+*Joueur3*
+```bash
+./sh13 127.0.0.1 12345 127.0.0.1 12343 Cari
+```
 
-    *Joueur4*
-    ```bash
-    ./sh13 127.0.0.1 12345 127.0.0.1 12344 Dari
-    ```
+*Joueur4*
+```bash
+./sh13 127.0.0.1 12345 127.0.0.1 12344 Dari
+```
 
 ## Affichage du jeu
 
