@@ -1,0 +1,56 @@
+Notes pour le TP de OsUser - Aymen BOU ALI
+
+
+Thread 1 :
+
+On peut voir que les clients prennent dans le stock sans qu'il n'y ait de protection de la donnée stock.
+
+
+Thread 2 :
+
+On met des mutex (lock et unlock) pour que l'ordre soit respecté.
+
+
+Thread 3 :
+
+Sections critiques créées :
+
+	pthread_mutex_lock (& store.mutex_stock);
+	pthread_mutex_unlock (& store.mutex_stock);
+
+
+Thread créés
+Varaibles de condition créées :
+
+	pthread_cond_t cond_stock;
+    pthread_cond_t cond_clients;
+
+
+>> pthread_cond_wait (& store.cond_stock, & store.mutex_stock);
+Cette fonction ne fonctionne qu'après un lock, on est dans la section critique et on a la condition qu'on voulait.
+Sinon si la varaible de condition n'est pas vraie, on s'endort en libérant le lock.
+
+
+>> pthread_cond_signal (& store.cond_clients);
+Cette fonction signale la condition. Elle permet de prévenir tous les clients qu'il y a du stock.
+
+
+if (val > store.stock)
+      {
+         pthread_cond_signal (& store.cond_stock);
+         pthread_cond_wait (& store.cond_clients, & store.mutex_stock);
+      }
+Ici, le client prévient le store qu'il a récup du stock afin que celui-ci sache s'il doive remplir ou non le stock.
+
+
+
+Dans affinity.c, on fixe les affinités en fonction des thread et des processeurs disponibles.
+
+>> int numberOfProcessors = sysconf(_SC_NPROCESSORS_ONLN);
+Donne le nombre de processeurs
+
+
+Dans sh13.c :
+
+volatile int synchro; // Volatile permet de ne pas accéder à la valeur qu'il y a dans le cache mais à la vraie valeur, la vraie adresse
+

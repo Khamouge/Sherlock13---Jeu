@@ -1,0 +1,26 @@
+ -- TP2 Syst.User BOU ALI Aymen --
+
+Pour lancer le serveur :
+>> gcc server.c -o serveur
+>> ./serveur 32000
+
+
+Puis lancer le client :
+>> gcc client.c -o client
+>> ./client <adresse_IP> 32000 <message\n>
+
+
+Pour savoir son IP :
+>> ip a
+
+Adresse IP de cet ordi : 134.157.104.81
+
+
+
+Pour le client.c :
+
+argv[1] -> ip
+argv[2] -> portno
+argv[3] -> mess
+
+On a donc modifié le fichier client.c et server.c afin de séparer les fonctions entre elles.
