@@ -82,7 +82,7 @@ fd signifie file description.
 Dans ce TP, nous avons abordé plusieurs notions comme les sockets pour la communication réseau mais aussi comment implémenter un serveur TCP et un client TCP. Pour mieux visualiser le tout, voici deux schémas liés entre eux.
 
 ![Schéma pour la connexion entre un serveur et un clint via TCP](SchemaImplementation_Serveur_Client_TCP.png)
-![Schéma pour la connexion entre un serveur et un clint via TCP - 2](Images\SchemaImplementation_Serveur_Client_TCP_Part2.png)
+![Schéma pour la connexion entre un serveur et un clint via TCP - 2](SchemaImplementation_Serveur_Client_TCP_Part2.png)
 
 *Ne faites pas attention à la taille je savais pas comment placer les images mais au moins il y a une petite flèche qui indique le sens de parcours...*
 
@@ -197,7 +197,7 @@ Le projet **Sherlock13** est un jeu multijoueur basé sur un serveur et des clie
 
 Voici un tableau récapitulant les commandes possibles :
 
-![Tableau des commandes](Images\TableauCommandes.png)
+![Tableau des commandes](TableauCommandes.png)
 
 ---
 
@@ -227,11 +227,11 @@ N'hésitez pas à renommer vos fenêtres pour que le lancement soit plus simple 
     ```
     Vous devriez avoir une fenêtre qui s'ouvre avec l'apparence suivant :
 
-    ![Capture d'écran avant la connexion](Images\CaptureEcran_ConnexionJoueur.png)
+    ![Capture d'écran avant la connexion](CaptureEcran_ConnexionJoueur.png)
 
     Puis appuyez sur le bouton connect (si celui met du temps à disparaître, laissez votre curseur de souris sur le bouton et attendez). Voici ce que vous devriez obtenir en entrant la commande ci-dessus :
 
-    ![Capture d'écran après la connexion](Images\CaptureEcran_AriConnecte.png)
+    ![Capture d'écran après la connexion](CaptureEcran_AriConnecte.png)
 
 **Attendez que le joueur 1 soit connecté avant de lancer la commande pour le joueur 2. Cela évitera certains problèmes au niveau des "lags".**
 
@@ -255,20 +255,20 @@ N'hésitez pas à renommer vos fenêtres pour que le lancement soit plus simple 
 Le jeu lance différentes fenêtres à l'aide de la bibliothèque graphique SDL2 (une version 3 de cette bibliothèque est disponible). Voici quelques captures d'écran du jeu :
 
 **Capture d'écran avant la connexion :**
-![Capture d'écran avant la connexion](Images\CaptureEcran_ConnexionJoueur.png)
+![Capture d'écran avant la connexion](CaptureEcran_ConnexionJoueur.png)
 
 Lorsque tous les joueurs sont connectés, chacun d'entre eux va recevoir une liste de carte et le joueur 1 lui va voir apparaître sur sa fenêtre un bouton "Go".
 
 **Aperçu du terminal du joueur 1 :**
-![Aperçu du terminal du joueur 1](Images\CaptureEcran_TerminaleJ1.png)
+![Aperçu du terminal du joueur 1](CaptureEcran_TerminaleJ1.png)
 
 **Aperçu des fenêtres des joueurs :**
-![Aperçu des fenêtres des joueurs](Images\CaptureEcran_LancementBoutonGoJ1.png)
+![Aperçu des fenêtres des joueurs](CaptureEcran_LancementBoutonGoJ1.png)
 
 
 Dans le jeu, plusieurs actions sont disponibles comme par exemple le fait de demander le nombre de joueur ayant une carte avec un symbole précis via la commande "R" :
 
-![Demande de carte avec symbole](Images\CaptureEcran_3joueursAvecSymboles.png)
+![Demande de carte avec symbole](CaptureEcran_3joueursAvecSymboles.png)
 
 Cette commande répond avec "R 3 100" dans la capture d'écran ci-dessus. On comprend alors qu'il y a trois joueurs ayant le symbole "pipe". "100" permet de confirmer qu'au moins 1 joueur dispose d'une carte avec ce symbole.
 
@@ -288,7 +288,7 @@ Evidemment, le jeu se base sur la prise d'information, chaque commande va donc r
 Si vous pensez avoir trouvé l'identité du coupable, sélectionner un coupable puis appuyez sur "Go". Mais attention, si celui-ci n'est pas le vrai coupable alors vous serez considéré comme un joueur passif. Si c'est le cas le serveur vous enverra "P [votreID]".
 
 Si par contre vous avez deviné qui est le coupable, alors le serveur renverra "W [votreID]" et le jeu se finira. Voici un exemple :
-![Capture d'écran d'une victoire](Images\CaptureEcran_WinJ1.png)
+![Capture d'écran d'une victoire](CaptureEcran_WinJ1.png)
 
 ---
 
