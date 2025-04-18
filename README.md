@@ -229,7 +229,7 @@ N'hésitez pas à renommer vos fenêtres pour que le lancement soit plus simple 
 
     ![Capture d'écran avant la connexion](CaptureEcran_ConnexionJoueur.png)
 
-    Puis appuyez sur le bouton connect (si celui met du temps à disparaître, laissez votre curseur de souris sur le bouton et attendez). Voici ce que vous devriez obtenir en entrant la commande ci-dessus :
+    Puis appuyez sur le bouton connect (si celui met du temps à disparaître, laissez votre curseur de souris sur le bouton et attendez). Voici ce que vous devriez obtenir un résultat similaire à la capture d'écran ci-dessous :
 
     ![Capture d'écran après la connexion](CaptureEcran_AriConnecte.png)
 
@@ -298,10 +298,13 @@ Lorsque tous les joueurs sont connectés, chacun d'entre eux va recevoir une lis
 ![Aperçu du terminal du joueur 1](CaptureEcran_TerminaleJ1.png)
 
 **Aperçu des fenêtres des joueurs :**
+
+Chaque joueur verra alors le nombre de symbole qu'il a sur ses trois cartes :
+
 ![Aperçu des fenêtres des joueurs](CaptureEcran_LancementBoutonGoJ1.png)
 
 
-Dans le jeu, plusieurs actions sont disponibles comme par exemple le fait de demander le nombre de joueur ayant une carte avec un symbole précis via la commande "R" :
+Dans le jeu, plusieurs actions sont disponibles comme par exemple le fait de demander le nombre de joueur ayant une carte avec un symbole précis via la commande "R", tout ce que vous avez à faire, c'est de sélectionner le symbole que vous souhaitez et non pas rentrer des commandes (le symbole sélectionné est en vert) :
 
 ![Demande de carte avec symbole](CaptureEcran_3joueursAvecSymboles.png)
 
