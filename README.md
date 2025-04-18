@@ -206,7 +206,7 @@ Voici un tableau récapitulant les commandes possibles :
 ### **Étapes pour lancer le projet**
 
 1. **Compilation avec Makefile :**
-   Dans le répertoire contenant les fichiers `server.c`, `sh13.c` et le `Makefile`, celui de départ, exécutez :
+   Dans le répertoire contenant les fichiers `server.c`, `sh13.c` et le `Makefile`, le dossier Projet, exécutez :
    ```bash
    make
    ```
