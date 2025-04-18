@@ -10,6 +10,7 @@
 #include <sys/types.h> 
 #include <sys/socket.h>
 #include <netinet/in.h>
+#include <time.h>
 
 #include <netdb.h>
 #include <arpa/inet.h>
@@ -216,12 +217,18 @@ void broadcastMessage(char *mess)
 
 int main(int argc, char *argv[])
 {
+	 // On commence par initialiser le générateur de nombre pseudo-aléatoires.
+     srand( time( NULL ) );
      int sockfd, newsockfd, portno;
      socklen_t clilen;
      char buffer[256];
      struct sockaddr_in serv_addr, cli_addr;
      int n;
-	int i;
+	 int i;
+	 int tabPassif[3];
+	 for(int w = 0 ; w <= 3 ; w++){
+	 	tabPassif[w] = -1;
+	 }
 
         char com;
         char clientIpAddress[256], clientName[256];
@@ -253,6 +260,7 @@ int main(int argc, char *argv[])
 	createTable();
 	printDeck();
 	joueurCourant=0;
+	int encoreActif = 1; // Pour savoir si tous les joueurs sont passifs ou non
 
 	for (i=0;i<4;i++)
 	{
@@ -359,7 +367,7 @@ int main(int argc, char *argv[])
 
 								// On envoie enfin un message à tout le monde pour définir qui est le joueur courant=0
 								// RAJOUTER LE CODE ICI
-								sprintf(reply, "M %d", 0); // Ajout
+								sprintf(reply, "M %d", joueurCourant); // Ajout
 								broadcastMessage(reply); // Ajout
 
                                 fsmServer=1;
@@ -369,24 +377,55 @@ int main(int argc, char *argv[])
 	}
 	else if (fsmServer==1)
 	{
+		for(int w = 0 ; w <= 3 ; w++){ // Vérification que le joueur courant n'est pas passif
+			if(joueurCourant == tabPassif[w]){
+				sprintf(reply, "J%d est passif, il passe son tour !", joueurCourant + 1);
+				broadcastMessage(reply);
+				joueurCourant++;
+			}
+		}
 		switch (buffer[0])
 		{
                 case 'G':
 				// RAJOUTER DU CODE ICI
 				/*G pour guilty -> coupable
 				On accuse un personnage d'être le coupable, si c'est vrai, on gagne et la partie se finit sinon on devient un joueur passif*/
-				int joueurAccusateur, personnageAccuse;
-				sscanf(buffer, "G %d %d", &joueurAccusateur, &personnageAccuse);
+				int joueurCourant, personnageAccuse;
+				sscanf(buffer, "G %d %d", &joueurCourant, &personnageAccuse);
+
 				if(personnageAccuse == deck[12]){ // deck[12] correspond au coupable
-					sprintf(reply, "W %d", joueurAccusateur); // W pour win
+					sprintf(reply, "J%d a trouve l identite du coupable, il gagne la partie !", joueurCourant + 1);
 					broadcastMessage(reply); // Informer tout le monde que le joueur a gagné
 					fsmServer = 2; // Fin de la partie
+					sprintf(reply, "FIN DE LA PARTIE");
+					broadcastMessage(reply); // Informer tout le monde que la partie est terminée
+					close(newsockfd);
+					close(sockfd);
+					return 0;
+					break;
 				}
 				else{
-					sprintf(reply, "P %d", joueurAccusateur); // P pour passif
-					
+
+					sprintf(reply, "J%d n'est pas un bon detective... Il devient passif pour la fin de la partie !", joueurCourant + 1); // P pour passif
 					broadcastMessage(reply); // Informer tout le monde que le joueur devient passif
+					encoreActif = 0;
+					for(int w = 0 ; w <= 3 ; w++){
+						if(tabPassif[w] == -1){
+						encoreActif = 1;
+						tabPassif[w] = joueurCourant;
+						}
+					}
+					if(!encoreActif){
+						sprintf(reply, "Tous les joueurs sont passifs, la partie est terminée !");
+						broadcastMessage(reply); // On informe tout le monde que tous les joueurs sont passifs
+						sprintf(reply, "FIN DE LA PARTIE");
+						broadcastMessage(reply); // Informer tout le monde que la partie est terminée
+						close(newsockfd);
+						close(sockfd);
+						return 0;
+					}
 				}
+
 				break;
 
                 case 'O':
@@ -409,6 +448,7 @@ int main(int argc, char *argv[])
 					sprintf(reply, "R %d 0", joueursAvecSymbole); // 0 si aucun joueur ne possède le symbole
 				}
 				sendMessageToClient(tcpClients[joueurCourant].ipAddress, tcpClients[joueurCourant].port, reply); // Répondre au joueur courant
+
 				break;
 
 				case 'S':
@@ -420,13 +460,30 @@ int main(int argc, char *argv[])
 				nbCartes = tableCartes[joueurDemande][symboleDemande]; // Obtenir le nombre de cartes pour ce joueur et ce symbole
 				sprintf(reply, "R %d", nbCartes); // R pour réponse, suivi du nombre de cartes
 				sendMessageToClient(tcpClients[joueurCourant].ipAddress, tcpClients[joueurCourant].port, reply); // Répondre au joueur courant
+				
 				break;
-                	default:
-                        	break;
+                default:
+                break;
 		}
-        }
-     	close(newsockfd);
-     }
-     close(sockfd);
-     return 0; 
+		if(joueurCourant==3 && encoreActif==1) // On passe au joueur suivant (mise à jour)
+		{
+			joueurCourant=0;
+		}
+		else{
+			joueurCourant++;
+		}
+		sprintf(reply, "M %d", joueurCourant); // Ajout
+		broadcastMessage(reply); // Ajout
+    }
+	else{
+		sprintf(reply, "FIN DE LA PARTIE");
+		broadcastMessage(reply); // Informer tout le monde que la partie est terminée
+		close(newsockfd);
+		close(sockfd);
+		return 0;
+	}
+    close(newsockfd);
+    }
+    close(sockfd);
+    return 0; 
 }

@@ -360,6 +360,7 @@ int main(int argc, char ** argv)
 				Arguments : numéro du joueur, numéro de la carte, valeur*/
 				int numJoueur2, numCarte, valeur;
 				sscanf(gbuffer, "V %d %d %d", &numJoueur2, &numCarte, &valeur); // Ajout
+				tableCartes[numJoueur2][numCarte] = valeur;
 				printf("Num du Joueur : %d ; Num de la carte : %d ; Valeur : %d\n",numJoueur2 + 1,numCarte,valeur); // Ajout aussi (On oublie pas le \n)
 
 				break;
