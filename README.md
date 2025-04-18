@@ -206,49 +206,84 @@ Voici un tableau récapitulant les commandes possibles :
 ### **Étapes pour lancer le projet**
 
 1. **Compilation avec Makefile :**
-Dans le répertoire contenant les fichiers `server.c`, `sh13.c` et le `Makefile`, celui de départ, exécutez :
-```bash
-make
-```
+   Dans le répertoire contenant les fichiers `server.c`, `sh13.c` et le `Makefile`, celui de départ, exécutez :
+   ```bash
+   make
+   ```
 
 2. **Lancement du serveur :**
-Ouvrez une première fenêtre de terminal et exécutez :
-```bash
-./server 12345
-```
+   Ouvrez une première fenêtre de terminal et exécutez :
+   ```bash
+   ./server 12345
+   ```
 N'hésitez pas à renommer vos fenêtres pour que le lancement soit plus simple ! (Ex. : Serveur, Joueur 1, Joueur 2, ...)
 
 
 3. **Lancement des joueurs :
-Ouvrez quatre autres fenêtres de terminal et exécutez les commandes suivantes pour chaque joueur :
-*Joueur1*
-```bash
-./sh13 127.0.0.1 12345 127.0.0.1 12341 Ari
-```
-Vous devriez avoir une fenêtre qui s'ouvre avec l'apparence suivant :
+    Ouvrez quatre autres fenêtres de terminal et exécutez les commandes suivantes pour chaque joueur :
+    *Joueur1*
+    ```bash
+    ./sh13 127.0.0.1 12345 127.0.0.1 12341 Ari
+    ```
+    Vous devriez avoir une fenêtre qui s'ouvre avec l'apparence suivant :
 
-![Capture d'écran avant la connexion](CaptureEcran_ConnexionJoueur.png)
+    ![Capture d'écran avant la connexion](CaptureEcran_ConnexionJoueur.png)
 
-Puis appuyez sur le bouton connect (si celui met du temps à disparaître, laissez votre curseur de souris sur le bouton et attendez). Voici ce que vous devriez obtenir en entrant la commande ci-dessus :
+    Puis appuyez sur le bouton connect (si celui met du temps à disparaître, laissez votre curseur de souris sur le bouton et attendez). Voici ce que vous devriez obtenir en entrant la commande ci-dessus :
 
-![Capture d'écran après la connexion](CaptureEcran_AriConnecte.png)
+    ![Capture d'écran après la connexion](CaptureEcran_AriConnecte.png)
 
 **Attendez que le joueur 1 soit connecté avant de lancer la commande pour le joueur 2. Cela évitera certains problèmes au niveau des "lags".**
 
-*Joueur2*
-```bash
-./sh13 127.0.0.1 12345 127.0.0.1 12342 Bari
-```
+    *Joueur2*
+    ```bash
+    ./sh13 127.0.0.1 12345 127.0.0.1 12342 Bari
+    ```
 
-*Joueur3*
-```bash
-./sh13 127.0.0.1 12345 127.0.0.1 12343 Cari
-```
+    *Joueur3*
+    ```bash
+    ./sh13 127.0.0.1 12345 127.0.0.1 12343 Cari
+    ```
 
-*Joueur4*
+    *Joueur4*
+    ```bash
+    ./sh13 127.0.0.1 12345 127.0.0.1 12344 Dari
+    ```
+
+---
+
+## Quelques informations sur le code
+
+### Vous avez dit aléatoire ?
+
+D'une façon générale, il est clair que mélanger des cartes pour faire de l'aléatoire est relativement simple mais ce n'est pas vraiment le cas dans les codes.
+En effet, permettre l'aléatoire dans un code qui reste le même est difficile. Une commande le permet "rand" mais celle-ci permet le même chemin pour chaque partie, ce qui était le cas au départ avec ce projet.
+
+Pour changer ça, une ligne de code est à rajouter (son #include aussi) et c'est :
 ```bash
-./sh13 127.0.0.1 12345 127.0.0.1 12344 Dari
+#include <time.h>
+srand( time( NULL ) );
 ```
+Pourquoi ? Eh bien on se sert du temps actuel pour changer l'ordre, ce qui a pour effet de donner à chaque partie un mélange de carte aléatoire !
+
+### Vous avez accusé un innocent ?!
+
+Il est clair qu'accuser un innocent n'est pas la chose à faire mais pas de panique ! Ici aussi vous ferez face à vos erreurs haha !
+Ce n'est pas la prison qui vous attend mais vous deviendrez un fantôme aux yeux de tous, vous serez un joueur passif.
+
+Qu'est-ce que c'est ? Après une accusation, si le joueur se trompe, son ID est enregistré dans un tableau permettant de répertorier les joueurs passifs. Ces joueux ne pourront plus jouer jusqu'à la fin de la partie grâce au gendarme présent ci-dessous :
+
+![Boucle de vérification](Boucle_VerifPassifs.png)
+
+Il est évident que si 3 joueurs sont passifs, le 4ème joueur gagne la partie et cette partie se termine. Il faut donc ajouter les joueurs passifs au tableau et si celui-ci contient plus de 3 joueurs la partie se termine. Voilà une petite capture d'écran qui montre ces fonctionnalités :
+
+![Ajout de passif et fin de partie](AjoutPassif_FinPartie.png)
+
+### Encore plus d'informations ?!
+
+Dans les codes du projet (server.c et sh13.c dans le dossier Projet), se trouvent plusieurs commentaires décrivant les fonctions. Je pense que ces commentaires suffisent à comprendre le code en lui-même. N'hésitez pas à jouer avec ce code en changeant quelques lignes ou à l'installer sur plusieurs ordinateurs connectés en réseau !
+
+---
 
 ## Affichage du jeu
 
@@ -292,13 +327,7 @@ Si par contre vous avez deviné qui est le coupable, alors le serveur renverra "
 
 ---
 
-## Problèmes
-
-Malheureusement, plusieurs problèmes apparaissent lors du lancement du jeu et ceux-ci nuisent aux nouvelles parties.
-
-### Aléatoire ?
-
-Le premier problème concerne l'aléatoire, il est normal d'avoir des parties différentes les unes des autres, mais pas ici. J'aurais très bien pu dire que cette fonctionnalité était pour vérifier que le jeu fonctionne mais ce n'est pas le cas.
+## Problème
 
 ### Quelques lags par ici
 
