@@ -271,7 +271,7 @@ Pourquoi ? Eh bien on se sert du temps actuel pour changer l'ordre, ce qui a pou
 Il est clair qu'accuser un innocent n'est pas la chose à faire mais pas de panique ! Ici aussi vous ferez face à vos erreurs haha !
 Ce n'est pas la prison qui vous attend mais vous deviendrez un fantôme aux yeux de tous, vous serez un joueur passif.
 
-Qu'est-ce que c'est ? Après une accusation, si le joueur se trompe, son ID est enregistré dans un tableau permettant de répertorier les joueurs passifs. Ces joueux ne pourront plus jouer jusqu'à la fin de la partie grâce au gendarme présent ci-dessous :
+Qu'est-ce que c'est ? Après une accusation, si le joueur se trompe, son ID est enregistré dans un tableau permettant de répertorier les joueurs passifs. Ces joueurs ne pourront plus jouer jusqu'à la fin de la partie grâce au gendarme présent ci-dessous :
 
 ![Boucle de vérification](Boucle_VerifPassifs.png)
 
