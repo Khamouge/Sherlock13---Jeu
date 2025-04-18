@@ -406,7 +406,7 @@ int main(int argc, char *argv[])
 				}
 				else{
 
-					sprintf(reply, "J%d n'est pas un bon detective... Il devient passif pour la fin de la partie !", joueurCourant + 1); // P pour passif
+					sprintf(reply, "J%d n'est pas un bon detective... Il devient passif pour la fin de la partie !", joueurCourant + 1);
 					broadcastMessage(reply); // Informer tout le monde que le joueur devient passif
 					encoreActif = 0;
 					for(int w = 0 ; w <= 3 ; w++){
