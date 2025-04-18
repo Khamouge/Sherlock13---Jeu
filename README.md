@@ -299,7 +299,7 @@ Lorsque tous les joueurs sont connectés, chacun d'entre eux va recevoir une lis
 
 **Aperçu des fenêtres des joueurs :**
 
-Chaque joueur verra alors le nombre de symbole qu'il a sur ses trois cartes :
+Chaque joueur verra alors le nombre de symboles qu'il a sur ses trois cartes :
 
 ![Aperçu des fenêtres des joueurs](CaptureEcran_LancementBoutonGoJ1.png)
 
