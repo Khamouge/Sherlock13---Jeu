@@ -235,20 +235,20 @@ N'hésitez pas à renommer vos fenêtres pour que le lancement soit plus simple 
 
 **Attendez que le joueur 1 soit connecté avant de lancer la commande pour le joueur 2. Cela évitera certains problèmes au niveau des "lags".**
 
-    *Joueur2*
-    ```bash
-    ./sh13 127.0.0.1 12345 127.0.0.1 12342 Bari
-    ```
+*Joueur2*
+```bash
+./sh13 127.0.0.1 12345 127.0.0.1 12342 Bari
+```
 
-    *Joueur3*
-    ```bash
-    ./sh13 127.0.0.1 12345 127.0.0.1 12343 Cari
-    ```
+*Joueur3*
+```bash
+./sh13 127.0.0.1 12345 127.0.0.1 12343 Cari
+```
 
-    *Joueur4*
-    ```bash
-    ./sh13 127.0.0.1 12345 127.0.0.1 12344 Dari
-    ```
+*Joueur4*
+```bash
+./sh13 127.0.0.1 12345 127.0.0.1 12344 Dari
+```
 
 ---
 
