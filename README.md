@@ -320,10 +320,10 @@ Evidemment, le jeu se base sur la prise d'information, chaque commande va donc r
 
 ### **On se sent chanceux ?**
 
-Si vous pensez avoir trouvé l'identité du coupable, sélectionner un coupable puis appuyez sur "Go". Mais attention, si celui-ci n'est pas le vrai coupable alors vous serez considéré comme un joueur passif. Si c'est le cas le serveur vous enverra "P [votreID]".
+Si vous pensez avoir trouvé l'identité du coupable, sélectionner un coupable puis appuyez sur "Go". Mais attention, si celui-ci n'est pas le vrai coupable alors vous serez considéré comme un joueur passif. Si c'est le cas le serveur vous enverra un message montrant que vous êtes passif.
 
-Si par contre vous avez deviné qui est le coupable, alors le serveur renverra "W [votreID]" et le jeu se finira. Voici un exemple :
-![Capture d'écran d'une victoire](CaptureEcran_WinJ1.png)
+Si par contre vous avez deviné qui est le coupable, alors le jeu se finira. Voici un exemple :
+![Capture d'écran d'une victoire](FinDePartieJ1Gagne.png)
 
 ---
 
