@@ -219,7 +219,7 @@ Voici un tableau récapitulant les commandes possibles :
 N'hésitez pas à renommer vos fenêtres pour que le lancement soit plus simple ! (Ex. : Serveur, Joueur 1, Joueur 2, ...)
 
 
-3. **Lancement des joueurs :
+3. **Lancement des joueurs** :
     Ouvrez quatre autres fenêtres de terminal et exécutez les commandes suivantes pour chaque joueur :
     *Joueur1*
     ```bash
